@@ -1,0 +1,22 @@
+.header {
+  color: white;
+  background: #2980b9;
+  background: rgb(244,25,25);
+  text-align: center;
+  padding: 25px 0;
+  text-transform: uppercase;
+}
+
+
+
+.header h1 {
+  margin: 0;
+  font-size: 3em;
+  font-weight: 100;
+}
+
+.header h2 {
+  margin: 0;
+  font-weight: 1.5em;
+  font-weight: 100;
+}
