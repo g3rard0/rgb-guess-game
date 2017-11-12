@@ -8,7 +8,7 @@ class Game extends Component {
     super(props);
     this.state = {
       mode: 'easy',
-      gameOver: false,
+      isGameOver: false,
     };
     this.state.colors = this.getColors();
     this.state.winningColor = this.getWinningColor();
@@ -30,16 +30,22 @@ class Game extends Component {
 
   getWinningColor = () => {
     let colorCount = this.getColorCount();
-    // console.log(randomNum(0, colorCount-1));
     return randomNum(0, colorCount-1);
   };
 
+  handleChangeMode = (mode) => {
+    this.setState({ mode });
+  };
+
   render() {
-    let { winningColor } = this.state;
+    let { winningColor, isGameOver, mode } = this.state;
     return (
       <div>
         <Header color={this.state.colors[winningColor]} />
-        <Controls />
+        <Controls
+          isGameOver={isGameOver}
+          mode={mode}
+          changeMode={this.handleChangeMode}/>
         Game container
       </div>
     );

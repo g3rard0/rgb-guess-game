@@ -1,3 +1,9 @@
+ul {
+  margin: 0;
+  list-style: none;
+  padding: 0;
+}
+
 .header {
   color: white;
   background: #2980b9;
@@ -6,8 +12,6 @@
   padding: 25px 0;
   text-transform: uppercase;
 }
-
-
 
 .header h1 {
   margin: 0;
@@ -19,4 +23,40 @@
   margin: 0;
   font-weight: 1.5em;
   font-weight: 100;
+}
+
+.container {
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.message {
+  float: left;
+}
+
+.controls {
+  text-transform: uppercase;
+  color: #2980b9;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.message span {
+  padding: 7px;
+  display: inline-block;
+}
+
+.modes {
+  float: right;
+}
+
+.modes li {
+  float: left;
+  padding: 7px;
+  display: inline-block;
+}
+
+.active {
+  background: #2980b9;
+  color: white;
 }
