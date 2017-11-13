@@ -15,12 +15,12 @@ class Game extends Component {
     console.log(`state, ${JSON.stringify(this.state, null, 2)}`);
   }
 
-  getColorCount = () => {
-    return (this.state.mode === 'easy') ? 3 : 6;
+  getColorCount = (mode = this.state.mode) => {
+    return (mode === 'easy') ? 3 : 6;
   }
 
-  getColors = () => {
-    let colorCount = this.getColorCount();
+  getColors = (mode = this.state.mode) => {
+    let colorCount = this.getColorCount(mode);
     let colors = [];
     for (let i = 0; i < colorCount; i++) {
       colors.push(getColor());
@@ -28,24 +28,36 @@ class Game extends Component {
     return colors;
   };
 
-  getWinningColor = () => {
-    let colorCount = this.getColorCount();
+  getWinningColor = (mode = this.state.mode) => {
+    let colorCount = this.getColorCount(mode);
     return randomNum(0, colorCount-1);
   };
 
-  handleChangeMode = (mode) => {
-    this.setState({ mode });
+  handleChangeMode = (mode = this.state.mode) => {
+    this.handleResetColors(mode);
+  };
+
+  handleResetColors = (mode) => {
+    console.log(mode)
+    let newColors = this.getColors(mode);
+    let newWinningColor = this.getWinningColor(mode);
+    this.setState({
+      mode: mode,
+      colors: newColors,
+      winningColor: newWinningColor
+    });
   };
 
   render() {
     let { winningColor, isGameOver, mode } = this.state;
+    console.log(this.state.colors)
     return (
       <div>
         <Header color={this.state.colors[winningColor]} />
         <Controls
           isGameOver={isGameOver}
           mode={mode}
-          changeMode={this.handleChangeMode}/>
+          changeMode={this.handleChangeMode} />
         Game container
       </div>
     );
