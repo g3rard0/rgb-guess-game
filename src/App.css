@@ -35,9 +35,6 @@ ul {
 }
 
 .controls {
-  text-transform: uppercase;
-  color: #2980b9;
-  cursor: pointer;
   overflow: hidden;
 }
 
@@ -52,11 +49,18 @@ ul {
 
 .modes li {
   float: left;
-  padding: 7px;
   display: inline-block;
 }
 
-.active {
+.button {
+  padding: 10px;
+  border: none;
+  color: #2980b9;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.button.active{
   background: #2980b9;
   color: white;
 }
