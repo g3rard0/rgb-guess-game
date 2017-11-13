@@ -10,6 +10,11 @@ class ColorList extends Component {
 
       let message = (colorArr === colors[winningColorIndex]) ? 'Correct' : 'Try Again';
       this.props.changeMessage(message);
+      if (colorArr === colors[winningColorIndex]) {
+        alert('you won');
+      } else {
+        alert('make color transparent');
+      }
     }
   };
 

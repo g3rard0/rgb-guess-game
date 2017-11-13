@@ -46,7 +46,8 @@ class Game extends Component {
     this.setState({
       mode: mode,
       colors: newColors,
-      winningColor: newWinningColor
+      winningColor: newWinningColor,
+      gameMessage: ''
     });
   };
 

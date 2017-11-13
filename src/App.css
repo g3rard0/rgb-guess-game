@@ -98,6 +98,7 @@ ul {
 .game-message {
   padding: 12px 0;
   display: inline-block;
+  position: relative;
 }
 
 @keyframes zoomOut {
@@ -121,8 +122,10 @@ ul {
 
 .zoom-out-leave {
   opacity: 1;
-  transition: all .02s;
-  transform: scale(1);
+  transition: all .01s;
+  position: absolute;
+  z-index: -1;
+  font-size: 0;
 }
 
 .zoom-out-leave.zoom-out-leave-active {

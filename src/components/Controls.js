@@ -33,7 +33,7 @@ class Controls extends Component {
                 <ReactCSSTransitionGroup
                   transitionName="zoom-out"
                   transitionEnterTimeout={200}
-                  transitionLeaveTimeout={20}>
+                  transitionLeaveTimeout={1}>
                     <div key={Date.now()}>{gameMessage}</div>
                 </ReactCSSTransitionGroup>
               </span>
