@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from './Header';
 import Controls from './Controls';
+import ColorList from './ColorList';
 import { getColor, randomNum } from '../helpers';
 
 class Game extends Component {
@@ -9,6 +10,7 @@ class Game extends Component {
     this.state = {
       mode: 'easy',
       isGameOver: false,
+      gameMessage: '',
     };
     this.state.colors = this.getColors();
     this.state.winningColor = this.getWinningColor();
@@ -48,8 +50,12 @@ class Game extends Component {
     });
   };
 
+  handleGameMessage = (message) => {
+    this.setState({ gameMessage: message });
+  }
+
   render() {
-    let { winningColor, isGameOver, mode } = this.state;
+    let { winningColor, isGameOver, mode, gameMessage } = this.state;
     console.log(this.state.colors)
     return (
       <div>
@@ -57,8 +63,19 @@ class Game extends Component {
         <Controls
           isGameOver={isGameOver}
           mode={mode}
-          changeMode={this.handleChangeMode} />
-        Game container
+          changeMode={this.handleChangeMode}
+          gameMessage={gameMessage}
+        />
+        <div className="game">
+          <div className="container">
+          <ColorList
+            colors={this.state.colors}
+            winningColorIndex={winningColor}
+            isGameOver={isGameOver}
+            changeMessage={this.handleGameMessage}
+          />
+          </div>
+        </div>
       </div>
     );
   }

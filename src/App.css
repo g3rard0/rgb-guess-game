@@ -1,3 +1,7 @@
+body {
+  background: #2E5B61;
+}
+
 ul {
   margin: 0;
   list-style: none;
@@ -36,6 +40,8 @@ ul {
 
 .controls {
   overflow: hidden;
+  background: white;
+  text-align: center;
 }
 
 .message span {
@@ -63,4 +69,43 @@ ul {
 .button.active{
   background: #2980b9;
   color: white;
+}
+
+.game .container {
+  padding: 30px 0;
+}
+
+.color-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.color {
+  width: 30%;
+  min-height: 165px;
+  margin-bottom: 30px;
+  border-radius: 4px;
+  transition: all .35s ease;
+}
+
+.color:hover {
+  -webkit-box-shadow: 0px 0px 51px 2px rgba(0,0,0,0.63);
+  -moz-box-shadow: 0px 0px 51px 2px rgba(0,0,0,0.63);
+  box-shadow: 0px 0px 51px 2px rgba(0,0,0,0.63);
+}
+
+.game-message {
+  padding: 10px 0;
+  display: inline-block;
+}
+
+@@keyframes zoomOut {
+  0% {
+    transform: scale(2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }

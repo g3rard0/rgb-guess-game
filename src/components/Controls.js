@@ -10,7 +10,7 @@ class Controls extends Component {
   };
 
   render() {
-    let { isGameOver, mode } = this.props;
+    let { isGameOver, mode, gameMessage } = this.props;
     return (
       <div className="controls">
         <div className="container">
@@ -28,6 +28,7 @@ class Controls extends Component {
                 >hard</button>
             </li>
           </ul>
+          {gameMessage && <span className="game-message">{gameMessage}</span>}
         </div>
       </div>
     );
