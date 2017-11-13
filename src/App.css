@@ -59,7 +59,7 @@ ul {
 }
 
 .button {
-  padding: 10px;
+  padding: 12px;
   border: none;
   color: #2980b9;
   cursor: pointer;
@@ -96,11 +96,11 @@ ul {
 }
 
 .game-message {
-  padding: 10px 0;
+  padding: 12px 0;
   display: inline-block;
 }
 
-@@keyframes zoomOut {
+@keyframes zoomOut {
   0% {
     transform: scale(2);
   }
@@ -108,4 +108,24 @@ ul {
   100% {
     transform: scale(1);
   }
+}
+
+.zoom-out-enter {
+  transform: scale(2);
+  transition: all .2s;
+}
+
+.zoom-out-enter.zoom-out-enter-active {
+  transform: scale(1);
+}
+
+.zoom-out-leave {
+  opacity: 1;
+  transition: all .02s;
+  transform: scale(1);
+}
+
+.zoom-out-leave.zoom-out-leave-active {
+  opacity: 0;
+  transform: scale(0);
 }

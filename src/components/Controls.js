@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 class Controls extends Component {
   updateMode = (mode) => {
@@ -28,7 +29,14 @@ class Controls extends Component {
                 >hard</button>
             </li>
           </ul>
-          {gameMessage && <span className="game-message">{gameMessage}</span>}
+              <span className="game-message">
+                <ReactCSSTransitionGroup
+                  transitionName="zoom-out"
+                  transitionEnterTimeout={200}
+                  transitionLeaveTimeout={20}>
+                    <div key={Date.now()}>{gameMessage}</div>
+                </ReactCSSTransitionGroup>
+              </span>
         </div>
       </div>
     );

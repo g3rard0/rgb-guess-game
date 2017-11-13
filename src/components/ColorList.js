@@ -3,12 +3,10 @@ import React, { Component } from 'react';
 class ColorList extends Component {
   isWinningColor = (colorArr) => {
     let { isGameOver} = this.props;
+
     if (!isGameOver) {
       let { winningColorIndex, colors } = this.props;
       console.log(colorArr === colors[winningColorIndex]);
-      // if (colorArr === colors[winningColorIndex]) {
-      //   this.props.changeMessage('correct')
-      // }
 
       let message = (colorArr === colors[winningColorIndex]) ? 'Correct' : 'Try Again';
       this.props.changeMessage(message);

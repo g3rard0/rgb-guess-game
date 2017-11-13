@@ -51,6 +51,7 @@ class Game extends Component {
   };
 
   handleGameMessage = (message) => {
+    console.log('game message');
     this.setState({ gameMessage: message });
   }
 
