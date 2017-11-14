@@ -1,5 +1,5 @@
 body {
-  background: #2E5B61;
+  background: #494949;
 }
 
 ul {
@@ -10,8 +10,7 @@ ul {
 
 .header {
   color: white;
-  background: #2980b9;
-  background: rgb(244,25,25);
+  background: #757575;
   text-align: center;
   padding: 25px 0;
   text-transform: uppercase;
@@ -131,4 +130,41 @@ ul {
 .zoom-out-leave.zoom-out-leave-active {
   opacity: 0;
   transform: scale(0);
+}
+
+@media (max-width: 660px) {
+  .game .container {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .color {
+    width: 44%; /*88*/
+    margin-left: 3%;
+    margin-right: 3%;
+  }
+
+  .header h1 {
+    font-size: 2.5em;
+  }
+}
+
+@media (max-width: 360px) {
+ .header h1 {
+   font-size: 2em;
+ }
+
+ .color {
+   min-height: 145px;
+ }
+}
+
+@media (max-width: 320px) {
+ .header h1 {
+   font-size: 2em;
+ }
+
+ .color {
+   min-height:115px;
+ }
 }
