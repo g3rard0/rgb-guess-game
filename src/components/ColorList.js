@@ -31,7 +31,7 @@ class ColorList extends Component {
         style={style}
         onClick={() => this.isWinningColor(color, i)}
         >
-        color {color.join(",")}
+        {/*color {color.join(",")}*/}
       </li>
     );
   }

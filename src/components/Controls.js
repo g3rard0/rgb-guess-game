@@ -16,7 +16,10 @@ class Controls extends Component {
       <div className="controls">
         <div className="container">
           <span className="message">
-            {!isGameOver && <button className="button" onClick={() => this.resetColors()}>New Colors</button>}
+            <button className="button" onClick={() => this.resetColors()}>
+              {!isGameOver && "New Colors" }
+              { isGameOver && "Play Again?" }
+            </button>
           </span>
           <ul className="modes">
             <li>
