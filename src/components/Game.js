@@ -25,7 +25,8 @@ class Game extends Component {
     let colorCount = this.getColorCount(mode);
     let colors = [];
     for (let i = 0; i < colorCount; i++) {
-      colors.push(getColor());
+      // colors.push(getColor());
+      colors.push({ color: getColor() });
     }
     return colors;
   };
@@ -47,21 +48,32 @@ class Game extends Component {
       mode: mode,
       colors: newColors,
       winningColor: newWinningColor,
-      gameMessage: ''
+      gameMessage: '',
+      isGameOver: false
     });
   };
 
   handleGameMessage = (message) => {
-    console.log('game message');
     this.setState({ gameMessage: message });
   }
 
+  handleWrongColor = (i) => {
+    let colors = [...this.state.colors];
+    colors[i].clicked = true;
+    console.log(JSON.stringify(colors, null, 2));
+    this.setState({ colors });
+  }
+
+  hancldeCorrectColor = () => {
+    console.log('user has picked the correct color')
+    this.setState({ isGameOver: true })
+  }
   render() {
     let { winningColor, isGameOver, mode, gameMessage } = this.state;
     console.log(this.state.colors)
     return (
       <div>
-        <Header color={this.state.colors[winningColor]} />
+        <Header color={this.state.colors[winningColor].color} />
         <Controls
           isGameOver={isGameOver}
           mode={mode}
@@ -75,6 +87,8 @@ class Game extends Component {
             winningColorIndex={winningColor}
             isGameOver={isGameOver}
             changeMessage={this.handleGameMessage}
+            handleWrongColor={this.handleWrongColor}
+            hancldeCorrectColor={this.hancldeCorrectColor}
           />
           </div>
         </div>

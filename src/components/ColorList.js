@@ -1,36 +1,37 @@
 import React, { Component } from 'react';
 
 class ColorList extends Component {
-  isWinningColor = (colorArr) => {
-    let { isGameOver} = this.props;
+  isWinningColor = (colorArr, i) => {
+    let { isGameOver, colors, winningColorIndex} = this.props;
 
-    if (!isGameOver) {
-      let { winningColorIndex, colors } = this.props;
-      console.log(colorArr === colors[winningColorIndex]);
+    if (!isGameOver && !colors[i].clicked) {
+      let isWinningColor = (colorArr === colors[winningColorIndex].color);
 
-      let message = (colorArr === colors[winningColorIndex]) ? 'Correct' : 'Try Again';
+      let message = isWinningColor ? 'Correct' : 'Try Again';
       this.props.changeMessage(message);
-      if (colorArr === colors[winningColorIndex]) {
-        alert('you won');
+      if (isWinningColor) {
+        this.props.hancldeCorrectColor();
       } else {
-        alert('make color transparent');
+        this.props.handleWrongColor(i);
       }
     }
   };
 
-  renderColor(colorArr, i) {
-    let [r,g,b] = colorArr;
-    let style = {
-      background: `rgb(${r},${g},${b})`
-    };
+  renderColor(colorObj, i) {
+    let [r,g,b] = colorObj.color;
+    let { color } = colorObj;
+    let style = {};
+    if (!colorObj.clicked) {
+      style.background = `rgb(${r},${g},${b})`;
+    }
     return (
       <li
         key={i}
-        className="color"
+        className={`color ${!colorObj.clicked ? 'box-shadow' : ''}`}
         style={style}
-        onClick={() => this.isWinningColor(colorArr)}
+        onClick={() => this.isWinningColor(color, i)}
         >
-        color {colorArr.join(",")}
+        color {color.join(",")}
       </li>
     );
   }
@@ -38,7 +39,7 @@ class ColorList extends Component {
     return (
       <div>
         <ul className="color-list">
-          {this.props.colors.map((colorArr, i) => this.renderColor(colorArr, i))}
+          {this.props.colors.map((colorObj, i) => this.renderColor(colorObj, i))}
         </ul>
         {/*<pre>{JSON.stringify(this.props.colors, null, 2)}</pre>*/}
       </div>
